@@ -1,0 +1,42 @@
+{
+  "name": "movie-search-app",
+  "version": "1.0.0",
+  "description": "Movie Search App",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "debug": "nodemon --insepct index.js",
+    "build": "webpakc -d",
+    "dev:client": "webpack -d --watch",
+    "test": "jest --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2000prcs/movie-search-app.git"
+  },
+  "author": "Moyeong Lee",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2000prcs/movie-search-app/issues"
+  },
+  "homepage": "https://github.com/2000prcs/movie-search-app#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.10.0",
+    "sass-loader": "^7.0.3",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1"
+  }
+}
