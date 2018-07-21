@@ -9,3 +9,6 @@ public/bundle.js
 
 # Sass
 .sass-cache
+
+# Config files
+config

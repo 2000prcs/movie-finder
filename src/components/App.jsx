@@ -8,6 +8,8 @@ import {
 import Search from './Search.jsx';
 import Movies from './Movies.jsx';
 
+const { API_KEY } = require('../../config/IMDBconfig');
+
 export default class App extends React.Component {
   constructor(props) {
     super(props);
@@ -17,6 +19,7 @@ export default class App extends React.Component {
       keyword: 'cat',
     };
 
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handlePaginationChange = this.handlePaginationChange.bind(this);
   }
 
@@ -24,12 +27,12 @@ export default class App extends React.Component {
     this.fetchMovieData();
   }
 
+  // Fetch movie data from IMDB API
   fetchMovieData() {
-    const key = '403ffcb3b4481da342203f94fb6e937e';
     const keyword = this.state.keyword;
     const page = this.state.activePage;
 
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${keyword}&page=${page}`)
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyword}&page=${page}`)
       .then(res => res.json())
       .then((data) => {
         console.log('Movie data received :', data);
@@ -40,10 +43,14 @@ export default class App extends React.Component {
   }
 
 
-  handleInputChange() {
-
+  // Change search keyword by user input
+  handleInputChange(e) {
+    this.setState({ keyword: e.target.value }, () => {
+      this.fetchMovieData();
+    });
   }
 
+  // Change active page by pagination
   handlePaginationChange(e, { activePage }) {
     this.setState({ activePage }, () => {
       this.fetchMovieData();
