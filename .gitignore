@@ -3,3 +3,9 @@ node_modules
 
 # MAC files
 .DS_Store
+
+# Compiled bundle
+public/bundle.js
+
+# Sass
+.sass-cache

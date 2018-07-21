@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Table } from 'semantic-ui-react';
+
 
 export default class Movies extends React.Component {
  constructor(props){
@@ -8,9 +10,14 @@ export default class Movies extends React.Component {
 
   render() {
     return (
-      <div>
-        Movies
-      </div>
+      <Table sortable celled fixed>
+        <Table.Header>
+
+        </Table.Header>
+        <Table.Body>
+
+        </Table.Body>
+      </Table>
     );
   }
 }

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Input } from 'semantic-ui-react';
+
 
 export default class Search extends React.Component {
  constructor(props){
@@ -9,7 +11,7 @@ export default class Search extends React.Component {
   render() {
     return (
       <div>
-        Search
+        <Input action={{ icon: 'search' }} placeholder='Search...' />
       </div>
     );
   }
