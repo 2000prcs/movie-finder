@@ -23,15 +23,12 @@ export default class App extends React.Component {
     this.handlePaginationChange = this.handlePaginationChange.bind(this);
   }
 
-  componentDidMount() {
-    this.fetchMovieData();
-  }
+  // componentDidMount() {
+  //   this.fetchMovieData();
+  // }
 
   // Fetch movie data from IMDB API
-  fetchMovieData() {
-    const keyword = this.state.keyword;
-    const page = this.state.activePage;
-
+  fetchMovieData(page = this.state.activePage, keyword = this.state.keyword) {
     fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyword}&page=${page}`)
       .then(res => res.json())
       .then((data) => {
@@ -44,10 +41,14 @@ export default class App extends React.Component {
 
 
   // Change search keyword by user input
+  // Change current page to page 1
   handleInputChange(e) {
-    this.setState({ keyword: e.target.value }, () => {
-      this.fetchMovieData();
-    });
+    if (e.target.value) {
+      this.setState({ keyword: e.target.value }, () => {
+        this.setState({ activePage: 1 });
+        this.fetchMovieData(1);
+      });
+    }
   }
 
   // Change active page by pagination
@@ -66,13 +67,13 @@ export default class App extends React.Component {
           <Header as="h1" icon textAlign="center">
             <Icon name="video" circular />
             <Header.Content>
-                Let's Search Movies!
+                Mo's Movie Finder
             </Header.Content>
           </Header>
         </div>
         <Search handleInputChange={this.handleInputChange} />
         <Movies movies={movies} />
-        <div>
+        <div className="pagination">
           <Pagination
             activePage={activePage}
             ellipsisItem={{ content: <Icon name="ellipsis horizontal" />, icon: true }}
