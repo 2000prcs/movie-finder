@@ -63,7 +63,7 @@ export default class App extends React.Component {
             </Header.Content>
           </Header>
         </div>
-        <Search />
+        <Search handleInputChange={this.handleInputChange} />
         <Movies movies={movies} />
         <div>
           <Pagination

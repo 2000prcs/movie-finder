@@ -12,22 +12,26 @@ export default class Movies extends React.Component {
     };
   }
 
+  // Render movie data upon mounting
   componentDidMount() {
     this.getMovieData();
   }
 
+  // Update movie data when props changes
   componentDidUpdate(prevProps) {
     if (prevProps.movies !== this.props.movies) {
       this.getMovieData();
     }
   }
 
+  // Get movie data from App component
   getMovieData() {
     setTimeout(() => {
       this.setState({ data: this.props.movies });
     }, 300);
   }
 
+  // Sort the table by each column
   handleSort(clickedColumn) {
     const { column, data, direction } = this.state;
 
