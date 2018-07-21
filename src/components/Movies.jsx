@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 import _ from 'lodash';
-import { Table } from 'semantic-ui-react';
+import {
+  Table,
+  Button,
+  Modal,
+  Image,
+  Header,
+  Rating,
+  Popup
+} from 'semantic-ui-react';
 
 export default class Movies extends React.Component {
   constructor(props) {
@@ -67,7 +75,7 @@ export default class Movies extends React.Component {
               Title
             </Table.HeaderCell>
             <Table.HeaderCell
-              width={2}
+              width={3}
               sorted={column === 'vote_average' ? direction : null}
               onClick={() => this.handleSort('vote_average')}
             >
@@ -85,9 +93,24 @@ export default class Movies extends React.Component {
         <Table.Body>
           {_.map(data, ({ id, title, vote_average, release_date }) => (
             <Table.Row key={id}>
-              <Table.Cell>{title}</Table.Cell>
-              <Table.Cell>{vote_average}</Table.Cell>
-              <Table.Cell>{release_date}</Table.Cell>
+              <Table.Cell>
+                <Modal trigger={<Button basic fluid>{title}</Button>}>
+                  <Modal.Header>Select a Photo</Modal.Header>
+                  <Modal.Content image>
+                    <Image wrapped size="medium" />
+                    <Modal.Description>
+                      <Header>Default Profile Image</Header>
+                      <p>We've found the following gravatar image associated with your e-mail address.</p>
+                      <p>Is it okay to use this photo?</p>
+                    </Modal.Description>
+                  </Modal.Content>
+                </Modal>
+              </Table.Cell>
+              <Table.Cell>
+                {vote_average}  
+                <Rating icon="star" disabled defaultRating={vote_average} maxRating={10} />
+              </Table.Cell>
+              <Table.Cell textAlign="center">{release_date}</Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
