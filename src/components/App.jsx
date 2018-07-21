@@ -12,27 +12,46 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moives: [],
+      totalPages: 10,
+      activePage: 1,
+      keyword: 'cat',
     };
+
+    this.handlePaginationChange = this.handlePaginationChange.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.fetchMovieData();
   }
 
   fetchMovieData() {
-    let key = '403ffcb3b4481da342203f94fb6e937e';
-    let keyword = 'cat';
-    
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${keyword}`)
+    const key = '403ffcb3b4481da342203f94fb6e937e';
+    const keyword = this.state.keyword;
+    const page = this.state.activePage;
+
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${keyword}&page=${page}`)
       .then(res => res.json())
-      .then(result => console.log('Movie data received :', result))
+      .then((data) => {
+        console.log('Movie data received :', data);
+        this.setState({ movies: data.results });
+        this.setState({ totalPages: data.total_pages });
+      })
       .catch(error => console.log('Failed', error));
   }
 
-  render() {
 
-    const { movies } = this.state;
+  handleInputChange() {
+
+  }
+
+  handlePaginationChange(e, { activePage }) {
+    this.setState({ activePage }, () => {
+      this.fetchMovieData();
+    });
+  }
+
+  render() {
+    const { movies, totalPages, activePage } = this.state;
 
     return (
       <Container>
@@ -45,16 +64,17 @@ export default class App extends React.Component {
           </Header>
         </div>
         <Search />
-        <Movies movies={movies}/>
+        <Movies movies={movies} />
         <div>
           <Pagination
-            defaultActivePage={5}
+            activePage={activePage}
             ellipsisItem={{ content: <Icon name="ellipsis horizontal" />, icon: true }}
             firstItem={{ content: <Icon name="angle double left" />, icon: true }}
             lastItem={{ content: <Icon name="angle double right" />, icon: true }}
             prevItem={{ content: <Icon name="angle left" />, icon: true }}
             nextItem={{ content: <Icon name="angle right" />, icon: true }}
-            totalPages={10}
+            onPageChange={this.handlePaginationChange}
+            totalPages={totalPages}
           />
         </div>
       </Container>
