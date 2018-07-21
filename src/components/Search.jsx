@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import { Input } from 'semantic-ui-react';
+import { Input, Icon, Label } from 'semantic-ui-react';
 
 
 export default class Search extends React.Component {
- constructor(props){
-  super(props);
-  this.state = {};
- }
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
 
   render() {
     return (
-      <div>
-        <Input action={{ icon: 'search' }} placeholder='Search...' />
+      <div className="search">
+        <Input onChange={this.props.handleInputChange} icon placeholder="Search...">
+          <input />
+          <Icon name='search' circular />
+        </Input>
+          <Label pointing='left'>Type Movie Title Here!</Label>
       </div>
     );
   }

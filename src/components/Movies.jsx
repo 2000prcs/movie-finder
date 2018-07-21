@@ -60,21 +60,21 @@ export default class Movies extends React.Component {
         <Table.Header>
           <Table.Row>
             <Table.HeaderCell
-              width={5}
+              width={4}
               sorted={column === 'title' ? direction : null}
               onClick={() => this.handleSort('title')}
             >
               Title
             </Table.HeaderCell>
             <Table.HeaderCell
-              width={3}
+              width={2}
               sorted={column === 'vote_average' ? direction : null}
               onClick={() => this.handleSort('vote_average')}
             >
               IMDB Rating
             </Table.HeaderCell>
             <Table.HeaderCell
-              width={3}
+              width={2}
               sorted={column === 'release_date' ? direction : null}
               onClick={() => this.handleSort('release_date')}
             >
