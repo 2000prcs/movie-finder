@@ -1,9 +1,14 @@
+/* Main Container */
 .container {
   margin-top: 30px;
   margin-bottom: 30px; }
 
+/* Pagination */
 .pagination {
   display: flex;
   justify-content: center; }
+
+.star {
+  margin-left: 10px; }
 
 /*# sourceMappingURL=styles.css.map */

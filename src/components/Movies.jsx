@@ -7,7 +7,6 @@ import {
   Image,
   Header,
   Rating,
-  Popup
 } from 'semantic-ui-react';
 
 export default class Movies extends React.Component {
@@ -59,6 +58,12 @@ export default class Movies extends React.Component {
     });
   }
 
+  getMovieTrailer(){
+    let url = `http://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`
+ 
+
+  }
+
 
   render() {
     const { column, data, direction } = this.state;
@@ -91,17 +96,16 @@ export default class Movies extends React.Component {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {_.map(data, ({ id, title, vote_average, release_date }) => (
+          {_.map(data, ({ id, title, vote_average, release_date, overview, poster_path }) => (
             <Table.Row key={id}>
               <Table.Cell>
-                <Modal trigger={<Button basic fluid>{title}</Button>}>
-                  <Modal.Header>Select a Photo</Modal.Header>
+                <Modal size="small" trigger={<Button basic fluid>{title}</Button>}>
+                  <Modal.Header>{title}</Modal.Header>
                   <Modal.Content image>
-                    <Image wrapped size="medium" />
+                    <Image wrapped size="medium" src={`http://image.tmdb.org/t/p/w342${poster_path}`} />
                     <Modal.Description>
-                      <Header>Default Profile Image</Header>
-                      <p>We've found the following gravatar image associated with your e-mail address.</p>
-                      <p>Is it okay to use this photo?</p>
+                      <Header></Header>
+                      <p>{overview}</p>
                     </Modal.Description>
                   </Modal.Content>
                 </Modal>

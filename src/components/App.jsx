@@ -17,6 +17,7 @@ export default class App extends React.Component {
       totalPages: 10,
       activePage: 1,
       keyword: 'cat',
+      movieId: 0,
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -57,6 +58,7 @@ export default class App extends React.Component {
       this.fetchMovieData();
     });
   }
+
 
   render() {
     const { movies, totalPages, activePage } = this.state;
