@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "postinstall":  "webpack -d",
     "style": "sass src/styles/styles.scss public/styles.css",
     "debug": "nodemon --inspect index.js",
     "build": "webpack -d",
