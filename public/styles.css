@@ -1,9 +1,23 @@
+/* Main Container */
 .container {
   margin-top: 30px;
   margin-bottom: 30px; }
 
+/* Pagination */
 .pagination {
   display: flex;
   justify-content: center; }
+
+.star {
+  margin-left: 10px; }
+
+.ui.button {
+  overflow: hidden; }
+
+.search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
 
 /*# sourceMappingURL=styles.css.map */

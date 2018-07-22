@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "AAAA,UAAW;EACT,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;;AAGrB,WAAY;EACV,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM",
-"sources": ["../src/styles/_App.scss"],
+"mappings": "AAAA,oBAAoB;AACpB,UAAW;EACT,UAAU,EAAE,IAAI;EAChB,aAAa,EAAE,IAAI;;AAGrB,gBAAgB;AAChB,WAAY;EACV,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,MAAM;;ACTzB,KAAM;EACJ,WAAW,EAAE,IAAI;;AAGnB,UAAW;EACT,QAAQ,EAAE,MAAM;;ACLlB,OAAQ;EACN,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,GAAG;EACnB,eAAe,EAAE,MAAM;EACvB,WAAW,EAAE,MAAM",
+"sources": ["../src/styles/_App.scss","../src/styles/_Movies.scss","../src/styles/_Search.scss"],
 "names": [],
 "file": "styles.css"
 }
