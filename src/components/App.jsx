@@ -41,17 +41,20 @@ export default class App extends React.Component {
         this.setState({ movies: data.results });
         this.setState({ totalPages: data.total_pages });
       })
-      .catch(error => console.log('Failed', error));
+      .catch(error => console.log('Error occured while fetching movie data', error));
   }
 
 
   // Change search keyword by user input
   // When search keyword changes, change current page to page 1
+  // Wait 1000ms to fetch movie data to avoid sending too many GET requests
   handleInputChange(e) {
     if (e.target.value) {
       this.setState({ keyword: e.target.value }, () => {
         this.setState({ activePage: 1 });
-        this.fetchMovieData(1);
+        setTimeout(() => {
+          this.fetchMovieData(1);
+        }, 500);
       });
     }
   }
@@ -63,9 +66,8 @@ export default class App extends React.Component {
     });
   }
 
-
   render() {
-    const { movies, totalPages, activePage } = this.state;
+    const { movies, totalPages, activePage, keyword } = this.state;
 
     return (
       <Container>
@@ -77,7 +79,7 @@ export default class App extends React.Component {
             </Header.Content>
           </Header>
         </div>
-        <Search handleInputChange={this.handleInputChange} />
+        <Search handleInputChange={this.handleInputChange} keyword={keyword} />
         <Movies movies={movies} />
         <div className="pagination">
           <Pagination

@@ -3,14 +3,25 @@ import { Input, Icon, Label } from 'semantic-ui-react';
 
 
 export default class Search extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+
+    };
+  }
+
   render() {
+    const { keyword, handleInputChange } = this.props;
+
     return (
       <div className="search">
-        <Input onChange={this.props.handleInputChange} icon placeholder="Search...">
+        <Input onChange={handleInputChange} icon placeholder="Type Movie Title Here!">
           <input />
           <Icon name='search' circular />
         </Input>
-          <Label pointing='left'>Type Movie Title Here!</Label>
+        <Label pointing='left'>
+          Now Showing: <b>{keyword ? keyword : 'Popular Movies'}</b>
+        </Label>
       </div>
     );
   }
