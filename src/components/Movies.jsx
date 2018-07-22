@@ -9,8 +9,7 @@ import {
   Label,
 } from 'semantic-ui-react';
 
-const { API_KEY } = require('../../config/IMDBconfig');
-
+const axios = require('axios');
 
 export default class Movies extends React.Component {
   constructor(props) {
@@ -38,15 +37,14 @@ export default class Movies extends React.Component {
   getMovieData() {
     setTimeout(() => {
       this.setState({ data: this.props.movies });
-    }, 300);
+    }, 100);
   }
 
   // Get movie trailer when user clicks a movie title
   getMovieTrailer(id) {
-    fetch(`http://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`)
-      .then(res => res.json())
-      .then((data) => {
-        this.setState({ movieTrailerKey: data.results[0].key });
+    axios.get(`/search/${id}`)
+      .then((response) => {
+        this.setState({ movieTrailerKey: response.data.results[0].key });
       })
       .catch((error) => {
         console.log('Error occured while fetching data: ', error);

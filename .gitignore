@@ -10,8 +10,8 @@ public/bundle.js
 # Sass
 .sass-cache
 
-# Config files
-config
+# Node process.env variables
+.env
 
 # Coverage directory used by jest testing
 coverage

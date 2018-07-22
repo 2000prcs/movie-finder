@@ -9,7 +9,7 @@ import _ from 'lodash';
 import Search from './Search.jsx';
 import Movies from './Movies.jsx';
 
-const { API_KEY } = require('../../config/IMDBconfig');
+const axios = require('axios');
 
 export default class App extends React.Component {
   constructor(props) {
@@ -36,18 +36,14 @@ export default class App extends React.Component {
   // If there's no search keyword, show IMDB popular movies
   // When there's a new search keyword, set current page to page 1
   fetchMovieData(page = this.state.activePage, keyword = this.state.keyword) {
-    const searchMoviesUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyword}&page=${page}`;
-    const popularMoviesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`;
-
-    const url = keyword ? searchMoviesUrl : popularMoviesUrl;
+    const searchKeyword = keyword || 'popular';
     const currentPage = page || 1;
 
-    fetch(url)
-      .then(res => res.json())
-      .then((data) => {
+    axios.get(`/search/${searchKeyword}/${page}`)
+      .then((response) => {
         this.setState({
-          movies: data.results,
-          totalPages: data.total_pages,
+          movies: response.data.results,
+          totalPages: response.data.total_pages,
           activePage: currentPage,
         });
       })

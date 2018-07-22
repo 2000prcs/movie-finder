@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "postinstall":  "webpack -d",
+    "postinstall": "webpack -d",
     "style": "sass src/styles/styles.scss public/styles.css",
     "debug": "nodemon --inspect index.js",
     "build": "webpack -d",
@@ -44,9 +44,13 @@
     "webpack-cli": "^3.1.0"
   },
   "dependencies": {
+    "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "cors": "^2.8.4",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "lodash": "^4.17.10",
+    "morgan": "^1.9.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "semantic-ui-react": "^0.82.0"
