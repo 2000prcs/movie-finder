@@ -5,7 +5,6 @@ import {
   Button,
   Modal,
   Image,
-  Header,
   Rating,
   Label,
 } from 'semantic-ui-react';
@@ -42,13 +41,17 @@ export default class Movies extends React.Component {
     }, 300);
   }
 
+  // Get movie trailer when user clicks a movie title
   getMovieTrailer(id) {
     fetch(`http://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`)
       .then(res => res.json())
       .then((data) => {
         this.setState({ movieTrailerKey: data.results[0].key });
       })
-      .catch(error => console.log('Failed', error));
+      .catch((error) => {
+        console.log('Error occured while fetching data: ', error);
+        this.setState({ movieTrailerKey: null });
+      });
   }
 
   // Sort the table by each column
@@ -113,16 +116,20 @@ export default class Movies extends React.Component {
                       as="a"
                       wrapped
                       size="large"
-                      src={`http://image.tmdb.org/t/p/w342${poster_path}`} 
-                      href={`https://www.youtube.com/watch?v=${movieTrailerKey}`}
+                      src={`http://image.tmdb.org/t/p/w342${poster_path}`}
+                      href={movieTrailerKey ? `https://www.youtube.com/watch?v=${movieTrailerKey}` : '#'}
                       target="_blank"
                     />
                     <Modal.Description>
-                      <Header></Header>
                       <p>{overview}</p>
-                      <Label as="a" color="teal" tag href={`https://www.youtube.com/watch?v=${movieTrailerKey}`} target="_blank">
-                        Watch Movie Trailer
-                      </Label>
+                      {movieTrailerKey
+                      ? <Label as="a" color="teal" tag href={`https://www.youtube.com/watch?v=${movieTrailerKey}`} target="_blank">
+                          Watch Movie Trailer
+                        </Label>
+                      : <Label as='a' color='red' tag>
+                          Sorry, No Movie Trailer
+                        </Label>
+                      }
                     </Modal.Description>
                   </Modal.Content>
                 </Modal>
