@@ -1,0 +1,243 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Search component Should render Search 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Search />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <Input
+          icon={true}
+          placeholder="Type Movie Title Here!"
+          type="text"
+        >
+          <input />
+          <Icon
+            as="i"
+            circular={true}
+            name="search"
+          />
+        </Input>,
+        <Label
+          pointing="left"
+        >
+          Now Showing: 
+          <b>
+            Popular Movies
+          </b>
+        </Label>,
+      ],
+      "className": "search",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            <input />,
+            <Icon
+              as="i"
+              circular={true}
+              name="search"
+            />,
+          ],
+          "icon": true,
+          "onChange": undefined,
+          "placeholder": "Type Movie Title Here!",
+          "type": "text",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {},
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "as": "i",
+              "circular": true,
+              "name": "search",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "children": Array [
+            "Now Showing: ",
+            <b>
+              Popular Movies
+            </b>,
+          ],
+          "pointing": "left",
+        },
+        "ref": null,
+        "rendered": Array [
+          "Now Showing: ",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Popular Movies",
+            },
+            "ref": null,
+            "rendered": "Popular Movies",
+            "type": "b",
+          },
+        ],
+        "type": [Function],
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <Input
+            icon={true}
+            placeholder="Type Movie Title Here!"
+            type="text"
+          >
+            <input />
+            <Icon
+              as="i"
+              circular={true}
+              name="search"
+            />
+          </Input>,
+          <Label
+            pointing="left"
+          >
+            Now Showing: 
+            <b>
+              Popular Movies
+            </b>
+          </Label>,
+        ],
+        "className": "search",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              <input />,
+              <Icon
+                as="i"
+                circular={true}
+                name="search"
+              />,
+            ],
+            "icon": true,
+            "onChange": undefined,
+            "placeholder": "Type Movie Title Here!",
+            "type": "text",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {},
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "as": "i",
+                "circular": true,
+                "name": "search",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "children": Array [
+              "Now Showing: ",
+              <b>
+                Popular Movies
+              </b>,
+            ],
+            "pointing": "left",
+          },
+          "ref": null,
+          "rendered": Array [
+            "Now Showing: ",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Popular Movies",
+              },
+              "ref": null,
+              "rendered": "Popular Movies",
+              "type": "b",
+            },
+          ],
+          "type": [Function],
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

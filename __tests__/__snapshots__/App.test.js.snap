@@ -1,0 +1,635 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component Should render App 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "function",
+    "props": Object {
+      "children": Array [
+        <div
+          className="header"
+        >
+          <Header
+            as="h1"
+            icon={true}
+            textAlign="center"
+          >
+            <Icon
+              as="i"
+              circular={true}
+              name="video"
+            />
+            <HeaderContent>
+              Mo's Movie Finder
+            </HeaderContent>
+          </Header>
+        </div>,
+        <Search
+          handleInputChange={[Function]}
+          keyword=""
+        />,
+        <Movies />,
+        <div
+          className="pagination"
+        >
+          <Pagination
+            activePage={1}
+            aria-label="Pagination Navigation"
+            boundaryRange={1}
+            ellipsisItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="ellipsis horizontal"
+                />,
+                "icon": true,
+              }
+            }
+            firstItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="angle double left"
+                />,
+                "icon": true,
+              }
+            }
+            lastItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="angle double right"
+                />,
+                "icon": true,
+              }
+            }
+            nextItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="angle right"
+                />,
+                "icon": true,
+              }
+            }
+            onPageChange={[Function]}
+            pageItem={Object {}}
+            prevItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="angle left"
+                />,
+                "icon": true,
+              }
+            }
+            siblingRange={1}
+            totalPages={10}
+          />
+        </div>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Header
+            as="h1"
+            icon={true}
+            textAlign="center"
+          >
+            <Icon
+              as="i"
+              circular={true}
+              name="video"
+            />
+            <HeaderContent>
+              Mo's Movie Finder
+            </HeaderContent>
+          </Header>,
+          "className": "header",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "function",
+          "props": Object {
+            "as": "h1",
+            "children": Array [
+              <Icon
+                as="i"
+                circular={true}
+                name="video"
+              />,
+              <HeaderContent>
+                Mo's Movie Finder
+              </HeaderContent>,
+            ],
+            "icon": true,
+            "textAlign": "center",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "as": "i",
+                "circular": true,
+                "name": "video",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "children": "Mo's Movie Finder",
+              },
+              "ref": null,
+              "rendered": "Mo's Movie Finder",
+              "type": [Function],
+            },
+          ],
+          "type": [Function],
+        },
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "handleInputChange": [Function],
+          "keyword": "",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "movies": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <Pagination
+            activePage={1}
+            aria-label="Pagination Navigation"
+            boundaryRange={1}
+            ellipsisItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="ellipsis horizontal"
+                />,
+                "icon": true,
+              }
+            }
+            firstItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="angle double left"
+                />,
+                "icon": true,
+              }
+            }
+            lastItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="angle double right"
+                />,
+                "icon": true,
+              }
+            }
+            nextItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="angle right"
+                />,
+                "icon": true,
+              }
+            }
+            onPageChange={[Function]}
+            pageItem={Object {}}
+            prevItem={
+              Object {
+                "content": <Icon
+                  as="i"
+                  name="angle left"
+                />,
+                "icon": true,
+              }
+            }
+            siblingRange={1}
+            totalPages={10}
+          />,
+          "className": "pagination",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "activePage": 1,
+            "aria-label": "Pagination Navigation",
+            "boundaryRange": 1,
+            "ellipsisItem": Object {
+              "content": <Icon
+                as="i"
+                name="ellipsis horizontal"
+              />,
+              "icon": true,
+            },
+            "firstItem": Object {
+              "content": <Icon
+                as="i"
+                name="angle double left"
+              />,
+              "icon": true,
+            },
+            "lastItem": Object {
+              "content": <Icon
+                as="i"
+                name="angle double right"
+              />,
+              "icon": true,
+            },
+            "nextItem": Object {
+              "content": <Icon
+                as="i"
+                name="angle right"
+              />,
+              "icon": true,
+            },
+            "onPageChange": [Function],
+            "pageItem": Object {},
+            "prevItem": Object {
+              "content": <Icon
+                as="i"
+                name="angle left"
+              />,
+              "icon": true,
+            },
+            "siblingRange": 1,
+            "totalPages": 10,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        "type": "div",
+      },
+    ],
+    "type": [Function],
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "function",
+      "props": Object {
+        "children": Array [
+          <div
+            className="header"
+          >
+            <Header
+              as="h1"
+              icon={true}
+              textAlign="center"
+            >
+              <Icon
+                as="i"
+                circular={true}
+                name="video"
+              />
+              <HeaderContent>
+                Mo's Movie Finder
+              </HeaderContent>
+            </Header>
+          </div>,
+          <Search
+            handleInputChange={[Function]}
+            keyword=""
+          />,
+          <Movies />,
+          <div
+            className="pagination"
+          >
+            <Pagination
+              activePage={1}
+              aria-label="Pagination Navigation"
+              boundaryRange={1}
+              ellipsisItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="ellipsis horizontal"
+                  />,
+                  "icon": true,
+                }
+              }
+              firstItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="angle double left"
+                  />,
+                  "icon": true,
+                }
+              }
+              lastItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="angle double right"
+                  />,
+                  "icon": true,
+                }
+              }
+              nextItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="angle right"
+                  />,
+                  "icon": true,
+                }
+              }
+              onPageChange={[Function]}
+              pageItem={Object {}}
+              prevItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="angle left"
+                  />,
+                  "icon": true,
+                }
+              }
+              siblingRange={1}
+              totalPages={10}
+            />
+          </div>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Header
+              as="h1"
+              icon={true}
+              textAlign="center"
+            >
+              <Icon
+                as="i"
+                circular={true}
+                name="video"
+              />
+              <HeaderContent>
+                Mo's Movie Finder
+              </HeaderContent>
+            </Header>,
+            "className": "header",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "as": "h1",
+              "children": Array [
+                <Icon
+                  as="i"
+                  circular={true}
+                  name="video"
+                />,
+                <HeaderContent>
+                  Mo's Movie Finder
+                </HeaderContent>,
+              ],
+              "icon": true,
+              "textAlign": "center",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "class",
+                "props": Object {
+                  "as": "i",
+                  "circular": true,
+                  "name": "video",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": [Function],
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "children": "Mo's Movie Finder",
+                },
+                "ref": null,
+                "rendered": "Mo's Movie Finder",
+                "type": [Function],
+              },
+            ],
+            "type": [Function],
+          },
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "handleInputChange": [Function],
+            "keyword": "",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "movies": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <Pagination
+              activePage={1}
+              aria-label="Pagination Navigation"
+              boundaryRange={1}
+              ellipsisItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="ellipsis horizontal"
+                  />,
+                  "icon": true,
+                }
+              }
+              firstItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="angle double left"
+                  />,
+                  "icon": true,
+                }
+              }
+              lastItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="angle double right"
+                  />,
+                  "icon": true,
+                }
+              }
+              nextItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="angle right"
+                  />,
+                  "icon": true,
+                }
+              }
+              onPageChange={[Function]}
+              pageItem={Object {}}
+              prevItem={
+                Object {
+                  "content": <Icon
+                    as="i"
+                    name="angle left"
+                  />,
+                  "icon": true,
+                }
+              }
+              siblingRange={1}
+              totalPages={10}
+            />,
+            "className": "pagination",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "activePage": 1,
+              "aria-label": "Pagination Navigation",
+              "boundaryRange": 1,
+              "ellipsisItem": Object {
+                "content": <Icon
+                  as="i"
+                  name="ellipsis horizontal"
+                />,
+                "icon": true,
+              },
+              "firstItem": Object {
+                "content": <Icon
+                  as="i"
+                  name="angle double left"
+                />,
+                "icon": true,
+              },
+              "lastItem": Object {
+                "content": <Icon
+                  as="i"
+                  name="angle double right"
+                />,
+                "icon": true,
+              },
+              "nextItem": Object {
+                "content": <Icon
+                  as="i"
+                  name="angle right"
+                />,
+                "icon": true,
+              },
+              "onPageChange": [Function],
+              "pageItem": Object {},
+              "prevItem": Object {
+                "content": <Icon
+                  as="i"
+                  name="angle left"
+                />,
+                "icon": true,
+              },
+              "siblingRange": 1,
+              "totalPages": 10,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          "type": "div",
+        },
+      ],
+      "type": [Function],
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

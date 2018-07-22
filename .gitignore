@@ -12,3 +12,6 @@ public/bundle.js
 
 # Config files
 config
+
+# Coverage directory used by jest testing
+coverage

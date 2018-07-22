@@ -5,6 +5,7 @@ import {
   Icon,
   Pagination,
 } from 'semantic-ui-react';
+import _ from 'lodash';
 import Search from './Search.jsx';
 import Movies from './Movies.jsx';
 
@@ -19,6 +20,9 @@ export default class App extends React.Component {
       keyword: '',
     };
 
+    this.debounced = _.debounce(() => {
+      this.fetchMovieData(1);
+    }, 100);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handlePaginationChange = this.handlePaginationChange.bind(this);
   }
@@ -29,40 +33,39 @@ export default class App extends React.Component {
   }
 
   // Fetch movie data from IMDB API
+  // If there's no search keyword, show IMDB popular movies
+  // When there's a new search keyword, set current page to page 1
   fetchMovieData(page = this.state.activePage, keyword = this.state.keyword) {
     const searchMoviesUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyword}&page=${page}`;
     const popularMoviesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`;
 
     const url = keyword ? searchMoviesUrl : popularMoviesUrl;
+    const currentPage = page || 1;
 
     fetch(url)
       .then(res => res.json())
       .then((data) => {
-        this.setState({ movies: data.results });
-        this.setState({ totalPages: data.total_pages });
+        this.setState({
+          movies: data.results,
+          totalPages: data.total_pages,
+          activePage: currentPage,
+        });
       })
       .catch(error => console.log('Error occured while fetching movie data', error));
   }
 
 
   // Change search keyword by user input
-  // When search keyword changes, change current page to page 1
-  // Wait 1000ms to fetch movie data to avoid sending too many GET requests
+  // Wait 100ms to fetch movie data to avoid too often GET requests
   handleInputChange(e) {
-    if (e.target.value) {
-      this.setState({ keyword: e.target.value }, () => {
-        this.setState({ activePage: 1 });
-        setTimeout(() => {
-          this.fetchMovieData(1);
-        }, 500);
-      });
-    }
+    this.setState({ keyword: e.target.value });
+    this.debounced();
   }
 
   // Change active page by pagination
   handlePaginationChange(e, { activePage }) {
     this.setState({ activePage }, () => {
-      this.fetchMovieData();
+      this.fetchMovieData(activePage);
     });
   }
 
