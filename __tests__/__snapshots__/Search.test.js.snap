@@ -35,7 +35,7 @@ ShallowWrapper {
         >
           Now Showing: 
           <b>
-            Popular Movies
+            IMDB Popular Movies
           </b>
         </Label>,
       ],
@@ -96,7 +96,7 @@ ShallowWrapper {
           "children": Array [
             "Now Showing: ",
             <b>
-              Popular Movies
+              IMDB Popular Movies
             </b>,
           ],
           "pointing": "left",
@@ -109,10 +109,10 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "Popular Movies",
+              "children": "IMDB Popular Movies",
             },
             "ref": null,
-            "rendered": "Popular Movies",
+            "rendered": "IMDB Popular Movies",
             "type": "b",
           },
         ],
@@ -145,7 +145,7 @@ ShallowWrapper {
           >
             Now Showing: 
             <b>
-              Popular Movies
+              IMDB Popular Movies
             </b>
           </Label>,
         ],
@@ -206,7 +206,7 @@ ShallowWrapper {
             "children": Array [
               "Now Showing: ",
               <b>
-                Popular Movies
+                IMDB Popular Movies
               </b>,
             ],
             "pointing": "left",
@@ -219,10 +219,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Popular Movies",
+                "children": "IMDB Popular Movies",
               },
               "ref": null,
-              "rendered": "Popular Movies",
+              "rendered": "IMDB Popular Movies",
               "type": "b",
             },
           ],
