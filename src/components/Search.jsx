@@ -3,13 +3,6 @@ import { Input, Icon, Label } from 'semantic-ui-react';
 
 
 export default class Search extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    };
-  }
-
   render() {
     return (
       <div className="search">

@@ -16,24 +16,28 @@ export default class App extends React.Component {
     this.state = {
       totalPages: 10,
       activePage: 1,
-      keyword: 'cat',
-      movieId: 0,
+      keyword: '',
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handlePaginationChange = this.handlePaginationChange.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.fetchMovieData();
-  // }
+  // The initial page loads popular movies based on IMDB Movie Popularity Data
+  componentDidMount() {
+    this.fetchMovieData();
+  }
 
   // Fetch movie data from IMDB API
   fetchMovieData(page = this.state.activePage, keyword = this.state.keyword) {
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyword}&page=${page}`)
+    const searchMoviesUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${keyword}&page=${page}`;
+    const popularMoviesUrl = `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&page=${page}`;
+
+    const url = keyword ? searchMoviesUrl : popularMoviesUrl;
+
+    fetch(url)
       .then(res => res.json())
       .then((data) => {
-        console.log('Movie data received :', data);
         this.setState({ movies: data.results });
         this.setState({ totalPages: data.total_pages });
       })
@@ -42,7 +46,7 @@ export default class App extends React.Component {
 
 
   // Change search keyword by user input
-  // Change current page to page 1
+  // When search keyword changes, change current page to page 1
   handleInputChange(e) {
     if (e.target.value) {
       this.setState({ keyword: e.target.value }, () => {
