@@ -20,7 +20,7 @@
 2. Display search results in real time
 3. Secured API key information by [dotenv](https://github.com/motdotla/dotenv#readme)
 4. Increased data loading speed for frequently searched keywords (deployed version)
-5. Achieved 85% testing coverage
+5. Automated testing for each components
 6. Deployed the app on Heroku
 
 
