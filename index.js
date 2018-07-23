@@ -1,9 +1,10 @@
 const express = require('express');
 const parser = require('body-parser');
 const morgan = require('morgan');
-
+// const cors = require('cors');
 const path = require('path');
 const axios = require('axios');
+
 require('dotenv').config();
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, './public')));
+// app.use(cors());
 
 // Accessing IMDB API_KEY from process.env
 const { API_KEY } = process.env;

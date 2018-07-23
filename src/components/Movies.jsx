@@ -114,7 +114,7 @@ export default class Movies extends React.Component {
                       as="a"
                       wrapped
                       size="large"
-                      src={`http://image.tmdb.org/t/p/w342${poster_path}`}
+                      src={`https://image.tmdb.org/t/p/w342${poster_path}`}
                       href={movieTrailerKey ? `https://www.youtube.com/watch?v=${movieTrailerKey}` : '#'}
                       target="_blank"
                     />
