@@ -110,14 +110,19 @@ export default class Movies extends React.Component {
                 <Modal size="small" trigger={<Button onClick={() => this.getMovieTrailer(id)} basic fluid>{title}</Button>}>
                   <Modal.Header>{title}</Modal.Header>
                   <Modal.Content image>
-                    <Image
-                      as="a"
-                      wrapped
-                      size="large"
-                      src={`https://image.tmdb.org/t/p/w342${poster_path}`}
-                      href={movieTrailerKey ? `https://www.youtube.com/watch?v=${movieTrailerKey}` : '#'}
-                      target="_blank"
-                    />
+                    {poster_path 
+                    ? <Image
+                        as="a"
+                        wrapped
+                        size="large"
+                        src={`https://image.tmdb.org/t/p/w342${poster_path}`}
+                        href={movieTrailerKey ? `https://www.youtube.com/watch?v=${movieTrailerKey}` : '#'}
+                        target={movieTrailerKey? '_blank' : ''}
+                      />
+                    : <Image size='medium'>
+                        <Label content='Image not found!' icon='warning' />
+                      </Image>
+                  }
                     <Modal.Description>
                       <p>{overview}</p>
                       {movieTrailerKey
