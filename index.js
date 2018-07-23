@@ -4,7 +4,7 @@ const morgan = require('morgan');
 const path = require('path');
 const axios = require('axios');
 
-// Note: Comment out if Redis is installed on the local machine
+// Note: Uncomment if Redis is installed on the local machine
 // const redis = require('redis');
 
 // For API Key security, set API_KEY as process.env variable
@@ -23,7 +23,7 @@ app.use(parser.urlencoded({ extended: true }));
 // Serve client files
 app.use(express.static(path.join(__dirname, './public')));
 
-// Note: Comment out codes below to connet to Redis Client
+// Note: Uncomment codes below to connet to Redis Client
 // const REDIS_URL = process.env.REDIS_URL || '';
 // const redisClient = redis.createClient(REDIS_URL);
 
@@ -35,12 +35,13 @@ app.get('/search/:searchKeyword/:page', (req, res) => {
 
   const url = (searchKeyword === 'popular') ? popularMoviesUrl : searchMoviesUrl;
 
+  // Comment out if using Redis
   axios.get(url)
     .then(response => res.end(JSON.stringify(response.data)))
     .catch(err => console.log(err));
 
 
-  // Note: Comment out codes below for using Redis
+  // Note: Uncomment codes below for using Redis
   // In order to use Redis, Redis server should be globally installed on the local machine
 
   // redisClient.get(`${searchKeyword}-${page}`, (error, result) => {
