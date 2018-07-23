@@ -9,8 +9,10 @@
 ## Demo
 
 👉 Play Demo <a href="https://mo-movie-finder.herokuapp.com/">here</a>.
+
 <br>
-<img src="https://media.giphy.com/media/1Bg7vo5sBnkwk8Khn6/giphy.gif">
+
+<img src="https://i.imgur.com/W3hByI4.png">
 
 ## Achievements
 
