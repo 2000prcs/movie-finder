@@ -12,9 +12,9 @@
 
 ## Achievements
 
-1. Clean and simle UI
+1. Clean and simple UI
 2. Display search results in real time
-3. Secured API key information by dotenv
+3. Secured API key information by [dotenv](https://github.com/motdotla/dotenv#readme)
 4. Increased data loading speed for frequently searched keywords
 5. Achieved 85% testing coverage
 6. Deployed the app on Heroku
@@ -120,6 +120,7 @@ npm test
 * [Axios](https://github.com/axios/axios)
 * [Lodash](https://lodash.com/)
 * [Redis](https://redis.io/)
+* [dotenv](https://github.com/motdotla/dotenv#readme)
 * [Jest](https://jestjs.io/)
 * [Enzyme](https://airbnb.io/enzyme/)
 * [Heroku](https://www.heroku.com/)
