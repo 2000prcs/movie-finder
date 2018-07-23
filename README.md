@@ -88,27 +88,21 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 From the root directory:
 
-1. Install project dependencies:
+1. Install project dependencies & Build a client bundle with Webpack:
 
 ```sh
 npm install
 ```
 
-2. Build a client bundle with Webpack: 
-
-```sh
-npm run postinstall
-```
-
-3. Start Express server:
+2. Start Express server:
 
 ```sh
 npm start 
 ```
 
-4. Open browser at `127.0.0.1:7070` 
+3. Open browser at `127.0.0.1:7070` 
 
-5. Enjoy!
+4. Enjoy!
 
 ## Testing
 
