@@ -97,7 +97,7 @@ npm install
 2. Change `.env.example` to `.env` and save your TMDB API_KEY:
 
 ```sh
-API_KEY=12345678
+i.e. API_KEY=12345678
 ```
 
 3. Start Express server:
