@@ -27,7 +27,7 @@ export default class Movies extends React.Component {
   }
 
   // Update movie data when props changes
-  // Node: Reset column value to null to make table sortable correctly
+  // Note: Reset column value to null to make table sortable correctly
   componentDidUpdate(prevProps) {
     if (prevProps.movies !== this.props.movies) {
       this.getMovieData();
@@ -36,7 +36,7 @@ export default class Movies extends React.Component {
   }
 
   // Get movie data from App component
-  // Node: Delay invocation 100ms to receive data properly
+  // Note: Delay invocation 100ms to receive data properly
   getMovieData() {
     setTimeout(() => {
       this.setState({ data: this.props.movies });
