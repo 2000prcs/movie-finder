@@ -19,9 +19,10 @@
 1. Clean and simple UI
 2. Display search results in real time
 3. Secured API key information by [dotenv](https://github.com/motdotla/dotenv#readme)
-4. Increased data loading speed for frequently searched keywords
+4. Increased data loading speed for frequently searched keywords (deployed version)
 5. Achieved 85% testing coverage
 6. Deployed the app on Heroku
+
 
 ## Requirements
 
@@ -47,7 +48,7 @@ My initial plan was making each table row collapsable to show more movie informa
 2. Data Loading Speed
 
 I moved API calls to the server side for API key security, the data loading speed got much slower (300ms ~ 400ms).
-I used Redis as a caching layer to boost the loading speed of frequently searched keywords up to 100 times (3ms ~ 170ms). 
+I made a version of code using Redis caching. For the version, I used Redis as a caching layer to boost the loading speed of frequently searched keywords up to 100 times (3ms ~ 170ms).  
 
 ### Reasoning behind design decisions
 

@@ -3,7 +3,9 @@ const parser = require('body-parser');
 const morgan = require('morgan');
 const path = require('path');
 const axios = require('axios');
-const redis = require('redis');
+
+// Note: Comment out if Redis is installed on the local machine
+// const redis = require('redis');
 
 // For API Key security, set API_KEY as process.env variable
 require('dotenv').config();
@@ -21,9 +23,9 @@ app.use(parser.urlencoded({ extended: true }));
 // Serve client files
 app.use(express.static(path.join(__dirname, './public')));
 
-// Cache search results
-const REDIS_URL = process.env.REDIS_URL || '';
-const redisClient = redis.createClient(REDIS_URL);
+// Note: Comment out codes below to connet to Redis Client
+// const REDIS_URL = process.env.REDIS_URL || '';
+// const redisClient = redis.createClient(REDIS_URL);
 
 // GET request for movie search
 app.get('/search/:searchKeyword/:page', (req, res) => {
@@ -33,22 +35,30 @@ app.get('/search/:searchKeyword/:page', (req, res) => {
 
   const url = (searchKeyword === 'popular') ? popularMoviesUrl : searchMoviesUrl;
 
-  redisClient.get(`${searchKeyword}-${page}`, (error, result) => {
-    if (result) {
-    // the result exists in cache - return it to our user immediately
-      console.log('Redis cached the data');
-      res.send(JSON.parse(result));
-    } else {
-    // if there's no cached movie data, get it from TMDB API
-      axios.get(url)
-        .then((response) => {
-          // store the key-value pair (keyword-page: data) in cache with an expiry of 1 minute (60s)
-          redisClient.setex(`${searchKeyword}-${page}`, 60, JSON.stringify(response.data));
-          res.end(JSON.stringify(response.data));
-        })
-        .catch(err => console.log(err));
-    }
-  });
+  axios.get(url)
+    .then(response => res.end(JSON.stringify(response.data)))
+    .catch(err => console.log(err));
+
+
+  // Note: Comment out codes below for using Redis
+  // In order to use Redis, Redis server should be globally installed on the local machine
+
+  // redisClient.get(`${searchKeyword}-${page}`, (error, result) => {
+  //   if (result) {
+  //   // the result exists in cache - return it to our user immediately
+  //     console.log('Redis cached the data');
+  //     res.send(JSON.parse(result));
+  //   } else {
+  //   // if there's no cached movie data, get it from TMDB API
+  //     axios.get(url)
+  //       .then((response) => {
+  //         // store the key-value pair (keyword-page: data) in cache with an expiry of 1 minute (60s)
+  //         redisClient.setex(`${searchKeyword}-${page}`, 60, JSON.stringify(response.data));
+  //         res.end(JSON.stringify(response.data));
+  //       })
+  //       .catch(err => console.log(err));
+  //   }
+  // });
 });
 
 // GET request for movie trailer
