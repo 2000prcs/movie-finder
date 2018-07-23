@@ -94,15 +94,21 @@ From the root directory:
 npm install
 ```
 
-2. Start Express server:
+2. Change `.env.example` to `.env` and save your TMDB API_KEY:
+
+```sh
+API_KEY=12345678
+```
+
+3. Start Express server:
 
 ```sh
 npm start 
 ```
 
-3. Open browser at `127.0.0.1:7070` 
+4. Open browser at `127.0.0.1:7070` 
 
-4. Enjoy!
+5. Enjoy!
 
 ## Testing
 
