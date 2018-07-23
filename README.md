@@ -12,24 +12,24 @@
 
 ## Requirements
 
-> Allow a user to search for movies by title.
+### Allow a user to search for movies by title.
 
 As user types a search keyword in the search bar, a method `handleInputChange()` takes the input value and invokes `fetchMovieData()` method to render the search result.
 `fetchMovieData()` method is sending GET request to the express server to receive movies data by searching with the keyword. It requests IMDB API movies data based on a movie title matching with the keyword. 
 
-> Display visual results as the user types.
+### Display visual results as the user types.
 
 As user types a keyword in the search bar, `handleInputChange()` gets invoked with the new input. And it re-renders the movie data.
 
-> Add navigation for large result sets (e.g., pagination, infinite scroll).
+### Add navigation for large result sets (e.g., pagination, infinite scroll).
 
 I used Semantic UI React's Pagination component, and `handlePaginationChange()` gets invoked whenever user clicks a different page number. `handlePaginationChange()` method is invoking `fetchMovieData()` method with a new page number, and `fetchMovieData()` method is sending GET request to receive a new movie data based on the current page number.
 
-> How to set up the application and dependencies
+### How to set up the application and dependencies
 
 Please check [Usage](#usage) below for installations!
 
-> Challenges, and how you overcame them
+### Challenges, and how you overcame them
 
 1. Display Detailed Movie Information
 
@@ -40,7 +40,7 @@ My initial plan was making each table row collapsable to show more movie informa
 Since I moved API calls to the server side, the data loading speed got much slower (300ms ~ 400ms).
 I used Redis as a caching layer to boost the loading speed up to 10 times. (10ms ~ 30ms) 
 
-> Reasoning behind any design decisions
+### Reasoning behind any design decisions
 
 1. Main UI
 
@@ -57,7 +57,7 @@ I used a modal to show each movie's additional information. I also added its pos
 
 I added a label to show current search keyword as user types. This is also for a better user exprience by allowing the user to see what's currently searched.
 
-> Future improvements you would make with more time
+### Future improvements you would make with more time
 
 1. UI Design
 
