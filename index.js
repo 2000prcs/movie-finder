@@ -5,7 +5,10 @@ const path = require('path');
 const axios = require('axios');
 const redis = require('redis');
 
+// For API Key security, set API_KEY as process.env variable
 require('dotenv').config();
+
+const { API_KEY } = process.env;
 
 const app = express();
 const port = process.env.PORT || 7070;
@@ -15,14 +18,14 @@ app.use(morgan('dev'));
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
+// Serve client files
 app.use(express.static(path.join(__dirname, './public')));
 
+// Cache search results
 const REDIS_URL = process.env.REDIS_URL || '';
 const redisClient = redis.createClient(REDIS_URL);
 
-// Accessing IMDB API_KEY from process.env
-const { API_KEY } = process.env;
-
+// GET request for movie search
 app.get('/search/:searchKeyword/:page', (req, res) => {
   const { searchKeyword, page } = req.params;
   const searchMoviesUrl = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${searchKeyword}&page=${page}`;
@@ -32,11 +35,14 @@ app.get('/search/:searchKeyword/:page', (req, res) => {
 
   redisClient.get(`${searchKeyword}-${page}`, (error, result) => {
     if (result) {
+    // the result exists in cache - return it to our user immediately
       console.log('Redis cached the data');
       res.send(JSON.parse(result));
     } else {
+    // if there's no cached movie data, get it from TMDB API
       axios.get(url)
         .then((response) => {
+          // store the key-value pair (keyword-page: data) in cache with an expiry of 1 minute (60s)
           redisClient.setex(`${searchKeyword}-${page}`, 60, JSON.stringify(response.data));
           res.end(JSON.stringify(response.data));
         })
@@ -45,6 +51,7 @@ app.get('/search/:searchKeyword/:page', (req, res) => {
   });
 });
 
+// GET request for movie trailer
 app.get('/search/:movieId', (req, res) => {
   const { movieId } = req.params;
   const searchVideoUrl = `http://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`;

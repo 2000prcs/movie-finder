@@ -27,13 +27,13 @@ export default class App extends React.Component {
     this.handlePaginationChange = this.handlePaginationChange.bind(this);
   }
 
-  // The initial page loads popular movies based on IMDB Movie Popularity Data
+  // The initial page loads popular movies based on TMDB Movie Popularity Data
   componentDidMount() {
     this.fetchMovieData();
   }
 
-  // Fetch movie data from IMDB API
-  // If there's no search keyword, show IMDB popular movies
+  // Fetch movie data from TMDB API
+  // If there's no search keyword, show TMDB popular movies
   // When there's a new search keyword, set current page to page 1
   fetchMovieData(page = this.state.activePage, keyword = this.state.keyword) {
     const searchKeyword = keyword || 'popular';

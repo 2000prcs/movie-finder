@@ -9,7 +9,7 @@ const Search = ({ keyword, handleInputChange }) => (
       <Icon name="search" circular />
     </Input>
     <Label pointing="left">
-      Now Showing: <b>{keyword ? keyword : 'IMDB Popular Movies'}</b>
+      Now Showing: <b>{keyword ? keyword : 'TMDB Popular Movies'}</b>
     </Label>
   </div>
 );

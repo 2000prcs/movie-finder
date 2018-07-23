@@ -36,11 +36,11 @@ export default class Movies extends React.Component {
   }
 
   // Get movie data from App component
-  // Node: delay invocation 100ms to receive data properly
+  // Node: Delay invocation 100ms to receive data properly
   getMovieData() {
     setTimeout(() => {
       this.setState({ data: this.props.movies });
-    }, 100);
+    }, 50);
   }
 
   // Get movie trailer when user clicks a movie title
@@ -95,7 +95,7 @@ export default class Movies extends React.Component {
               sorted={column === 'vote_average' ? direction : null}
               onClick={() => this.handleSort('vote_average')}
             >
-              IMDB Rating
+              TMDB Rating
             </Table.HeaderCell>
             <Table.HeaderCell
               width={2}

@@ -40,7 +40,7 @@ ShallowWrapper {
               sorted={null}
               width={3}
             >
-              IMDB Rating
+              TMDB Rating
             </TableHeaderCell>
             <TableHeaderCell
               as="th"
@@ -88,7 +88,7 @@ ShallowWrapper {
               sorted={null}
               width={3}
             >
-              IMDB Rating
+              TMDB Rating
             </TableHeaderCell>
             <TableHeaderCell
               as="th"
@@ -123,7 +123,7 @@ ShallowWrapper {
                 sorted={null}
                 width={3}
               >
-                IMDB Rating
+                TMDB Rating
               </TableHeaderCell>,
               <TableHeaderCell
                 as="th"
@@ -158,13 +158,13 @@ ShallowWrapper {
               "nodeType": "function",
               "props": Object {
                 "as": "th",
-                "children": "IMDB Rating",
+                "children": "TMDB Rating",
                 "onClick": [Function],
                 "sorted": null,
                 "width": 3,
               },
               "ref": null,
-              "rendered": "IMDB Rating",
+              "rendered": "TMDB Rating",
               "type": [Function],
             },
             Object {
@@ -231,7 +231,7 @@ ShallowWrapper {
                 sorted={null}
                 width={3}
               >
-                IMDB Rating
+                TMDB Rating
               </TableHeaderCell>
               <TableHeaderCell
                 as="th"
@@ -279,7 +279,7 @@ ShallowWrapper {
                 sorted={null}
                 width={3}
               >
-                IMDB Rating
+                TMDB Rating
               </TableHeaderCell>
               <TableHeaderCell
                 as="th"
@@ -314,7 +314,7 @@ ShallowWrapper {
                   sorted={null}
                   width={3}
                 >
-                  IMDB Rating
+                  TMDB Rating
                 </TableHeaderCell>,
                 <TableHeaderCell
                   as="th"
@@ -349,13 +349,13 @@ ShallowWrapper {
                 "nodeType": "function",
                 "props": Object {
                   "as": "th",
-                  "children": "IMDB Rating",
+                  "children": "TMDB Rating",
                   "onClick": [Function],
                   "sorted": null,
                   "width": 3,
                 },
                 "ref": null,
-                "rendered": "IMDB Rating",
+                "rendered": "TMDB Rating",
                 "type": [Function],
               },
               Object {
