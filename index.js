@@ -1,9 +1,9 @@
 const express = require('express');
 const parser = require('body-parser');
 const morgan = require('morgan');
-// const cors = require('cors');
 const path = require('path');
 const axios = require('axios');
+const redis = require('redis');
 
 require('dotenv').config();
 
@@ -16,7 +16,8 @@ app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, './public')));
-// app.use(cors());
+
+const redisClient = redis.createClient();
 
 // Accessing IMDB API_KEY from process.env
 const { API_KEY } = process.env;
@@ -28,9 +29,19 @@ app.get('/search/:searchKeyword/:page', (req, res) => {
 
   const url = (searchKeyword === 'popular') ? popularMoviesUrl : searchMoviesUrl;
 
-  axios.get(url)
-    .then(response => res.end(JSON.stringify(response.data)))
-    .catch(err => console.log(err));
+  redisClient.get(`${searchKeyword}-${page}`, (error, result) => {
+    if (result) {
+      console.log('Redis cached the data');
+      res.send(JSON.parse(result));
+    } else {
+      axios.get(url)
+        .then((response) => {
+          redisClient.setex(`${searchKeyword}-${page}`, 60, JSON.stringify(response.data));
+          res.end(JSON.stringify(response.data));
+        })
+        .catch(err => console.log(err));
+    }
+  });
 });
 
 app.get('/search/:movieId', (req, res) => {
