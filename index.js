@@ -17,9 +17,8 @@ app.use(parser.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, './public')));
 
-
-const redisHost = process.env.REDIS_HOST || 'localhost';
-const redisClient = redis.createClient('6379', redisHost);
+const REDIS_URL = process.env.REDIS_URL || '';
+const redisClient = redis.createClient(REDIS_URL);
 
 // Accessing IMDB API_KEY from process.env
 const { API_KEY } = process.env;
